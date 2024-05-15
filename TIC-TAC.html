@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cinzel:wght@500&family=Corinthia:wght@700&family=Dancing+Script:wght@700&family=La+Belle+Aurore&family=Libre+Baskerville:wght@700&family=Lobster&family=Merriweather:ital,wght@0,900;1,300&family=Montserrat:wght@300&family=Playball&family=Playfair+Display:wght@400;500&family=Poppins:ital,wght@0,300;0,400;1,400&family=Sigmar&display=swap" rel="stylesheet">
+    
+	<script src=
+    "https://code.jquery.com/jquery-3.4.1.slim.min.js">
+        </script>
+        <link rel="stylesheet" href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js">
+        </script>
+        <link rel="stylesheet" href=
+    "https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+            integrity=
+    "sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
+            crossorigin="anonymous">
+    
+    <!-- Applying CSS Properties -->
+    
+    <style>
+body {
+    background-color: #E6DDC4;
+	padding: 60px;
+
+	}
+#back-button{
+    color:#E6DDC4;
+    font-family: 'Sigmar';    
+    padding: 5px;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    width: 150px;
+border: #181D31;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;        
+    background-color: #181D31;
+    border-radius: 9px;
+}
+a{
+    text-decoration: none  ;
+
+}
+#screen{
+    padding: 10px;
+    border-radius: 10px;
+    color: #181D31;
+    font-family: 'Sigmar';
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    font-size: 40px; 
+    }
+#game-box{
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;        
+    background-color: #678983;
+    }
+.btn{
+    margin-top: 10px;
+    
+    color: #181D31;
+    font-family: 'Sigmar';    
+    padding: 10px;
+    text-align: center;
+    font-size: 30px;
+    width: 150px;
+    color:#E6DDC4;
+    margin-right: 40px;
+    background-color: #181D31;
+    }
+.btn:hover{
+    background-color:#E6DDC4;
+    transition: 0.3 ease-in-out;        
+    color: #181D31;
+    }
+#Qoute{
+    
+    font-size: 20px;
+    font-family: 'Playfair+Display';
+    border-radius: 9px;
+    padding: 20px;
+    background-color:#E6DDC4;
+    color: #181D31;
+    }
+button {
+	height: 80px;
+	width: 80px;
+    background-color:#E6DDC4;
+	border: 0px transparent;
+	border-radius: 50%;
+	margin: 4px;
+    margin-left: 10px;
+    margin-top: 10px;
+	padding: 4px;
+	}
+h1{ padding: 20px;
+    border-radius: 9px;
+    color: #181D31;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    font-size: 60px;
+    font-family: 'Sigmar';
+}
+h3{ padding: 20px;
+    border-radius: 9px;
+    color: #181D31;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+    font-size: 40px;
+    font-family: 'Sigmar';
+
+}
+.fa{
+    font-size: 40px;
+     color: #181D31;
+     text-shadow: 2px 3px #678983;
+     
+}
+
+table{
+    margin-left: 120px;
+}
+#Right-side a{
+    text-decoration: none;
+}
+
+    </style>
+
+</head>
+<body>
+
+
+<div class="container-fluid text-center" id="game-box">
+    <div class="row">
+        <div class="col-lg-6 text-center" id="Right-side">
+
+<a href="Home.html">
+    <input type="button" value="Back" id="back-button">
+</a>       
+            <h6 id="Qoute">"Defeat Your Opponent  with Strategy and Skill"</h6>    
+            <h1>Tic-Tac-Toe</h1>
+            <h3>with Javascript</h3>
+        </div>
+        <div class="board col-lg-6 text-center">
+            <h4 id="screen"> Player <b>1</b> </h4>
+            <table>
+        <tr>
+            <td>
+                <button class="sqr1 r"></button>
+            </td>
+            <td>
+                <button class="sqr2 r"></button>
+            </td>
+            <td>
+                <button class="sqr3 r"></button>
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                <button class="sqr4 r"></button>
+            </td>
+            <td>
+             <button class="sqr5 r"></button>
+            </td>
+            <td>
+                <button class="sqr6 r"></button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <button class="sqr7 r"></button>
+            </td>
+            <td>
+                <button class="sqr8 r"></button>
+            </td>
+            <td>
+                <button class="sqr9 r"></button>
+            </td>
+        </tr>
+    </table>
+      <br>
+      <a href="TIC-TAC.html">
+        <input type="button" value="Replay" onclick="reset()" class="btn">
+      </a>
+        
+        </div>
+        
+               
+    </div>
+</div>
+
+
+<script>
+  
+var turn = 1;
+var moves = 0;
+var winner = false;
+
+$("button").click(function(){
+    if (!winner) {
+        if (turn === 1) {
+            $(this).addClass("fa fa-check");
+            $("#screen").text("Player 2");
+        } else {
+            $(this).addClass("fa fa-times");
+            $("#screen").text("Player 1");
+        }
++
+        $(this).off("click"); 
+                turn = turn === 1 ? 2 : 1;
+
+        moves++;
+        if (moves >= 5) { 
+            winstate();
+        }
+
+        if (moves === 9) { 
+            $("#screen").text("Draw!");
+        }
+    }
+});
+
+function winstate() {
+    var winCombinations = [
+        [0, 1, 2], [3, 4, 5], [6, 7, 8],
+        [0, 3, 6], [1, 4, 7], [2, 5, 8],
+        [0, 4, 8], [2, 4, 6] 
+    ];
+
+    for (var i = 0; i < winCombinations.length; i++) 
+    {
+        var combination = winCombinations[i];
+        var cell1 = $("button").eq(combination[0]);
+        var cell2 = $("button").eq(combination[1]);
+        var cell3 = $("button").eq(combination[2]);
+
+        if (cell1.hasClass("fa fa-check") && cell2.hasClass("fa fa-check") && cell3.hasClass("fa fa-check")) {
+            $("#screen").text("Player 1 wins!");
+            winner = true;
+            break;
+        } else if (cell1.hasClass("fa fa-times") && cell2.hasClass("fa fa-times") && cell3.hasClass("fa fa-times")) {
+            $("#screen").text("Player 2 wins!");
+            winner = true;
+            break;
+        }
+    }
+}
+
+</script>
+
+
+</body>
+</html>
